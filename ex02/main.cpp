@@ -2,6 +2,29 @@
 
 int main()
 {
+
+   MutantStack<int> mstack;
+    mstack.push(1);
+    mstack.push(5);
+    mstack.push(4);
+    mstack.push(4);
+    mstack.push(5);
+    mstack.push(6);
+    mstack.push(96);
+    mstack.push(0);
+
+    std::cout << "the size of stack before poping = " << mstack.size() << std::endl;
+    std::cout << "the top of stack befor poping = " <<  mstack.top() << std::endl;
+    std::cout << "-------------------------\n";
+    for (MutantStack<int>::iterator it = mstack.begin(); it != mstack.end(); ++it)
+    {
+        std::cout << *it << " ";
+    }
+    std::cout << "\n-------------------------\n";
+    mstack.pop();
+    std::cout << "the size of stack after poping = " << mstack.size() << std::endl;
+    std::cout  << "the top of stack after poping = " <<  mstack.top() << std::endl;
+    
     /*
 MutantStack<int> mstack;
 mstack.push(5);
@@ -27,25 +50,4 @@ std::stack<int> s(mstack);
 return 0;
     */
 
-   MutantStack<int> mstack;
-    mstack.push(1);
-    mstack.push(5);
-    mstack.push(4);
-    mstack.push(4);
-    mstack.push(5);
-    mstack.push(6);
-    mstack.push(96);
-    mstack.push(0);
-
-    std::cout << "the size of stack before poping = " << mstack.size() << std::endl;
-    std::cout << "the top of stack befor poping = " <<  mstack.top() << std::endl;
-    std::cout << "-------------------------\n";
-    for (MutantStack<int>::iterator it = mstack.begin(); it != mstack.end(); ++it)
-    {
-        std::cout << *it << " ";
-    }
-    std::cout << "\n-------------------------\n";
-    mstack.pop();
-    std::cout << "the size of stack after poping = " << mstack.size() << std::endl;
-    std::cout  << "the top of stack after poping = " <<  mstack.top() << std::endl;
 }

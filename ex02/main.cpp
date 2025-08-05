@@ -25,7 +25,7 @@ int main()
     std::cout << "the size of stack after poping = " << mstack.size() << std::endl;
     std::cout  << "the top of stack after poping = " <<  mstack.top() << std::endl;
     
-    /*
+    /* Test required in the subject
 MutantStack<int> mstack;
 mstack.push(5);
 mstack.push(17);

@@ -1,6 +1,6 @@
 #include "Span.hpp"
 
-const char *Span::FullSpanException::what() const throw()
+const char* Span::FullSpanException::what() const throw()
 {
     return "Span::FullSpanException";
 }
@@ -14,23 +14,22 @@ Span::Span(unsigned int N) : Size(N), lenght(0)
     array = new int[N];
 }
 
-Span::Span(const Span &s)
+Span::Span(const Span& s)
 {
     *this = s;
 }
 
-Span &Span::operator=(const Span &cpy)
+Span& Span::operator=(const Span& cpy)
 {
     if (this == &cpy)
         return *this;
-    // delete[] array;
-    Size = cpy.Size;
+    Size  = cpy.Size;
     array = new int[Size];
     std::copy(cpy.array, cpy.array + cpy.lenght, array);
     return *this;
 }
 
-int &Span::operator[](unsigned int i)
+int& Span::operator[](unsigned int i)
 {
     // std::cout << "lenght = " << lenght << std::endl;
     if (i < lenght)
@@ -40,7 +39,7 @@ int &Span::operator[](unsigned int i)
 
 Span::~Span()
 {
-    delete[]array;
+    delete[] array;
 }
 
 void Span::addNumber(int num)
@@ -51,7 +50,7 @@ void Span::addNumber(int num)
     lenght++;
 }
 
-void Span::addNumbers(int*begin, int*end)
+void Span::addNumbers(int* begin, int* end)
 {
     if (begin == end)
         return;
@@ -75,15 +74,14 @@ unsigned int Span::shortestSpan() const
 {
     if (lenght < 2)
         throw Span::SpanNotFoundException();
-     Span sortSpan = *this;
+    Span sortSpan = *this;
     std::sort(sortSpan.array, sortSpan.array + lenght);
-    int shortSpanResult = INT_MAX;
+    unsigned int shortSpanResult = __UINT32_MAX__;
     for (size_t i = 0; i < lenght - 1; i++)
     {
-        int isShort = sortSpan.array[i + 1] - sortSpan.array[i];
-        
+        unsigned int isShort = sortSpan.array[i + 1] - sortSpan.array[i];
         if (isShort < shortSpanResult)
-             shortSpanResult = isShort;
+            shortSpanResult = isShort;
     }
     return shortSpanResult;
 }

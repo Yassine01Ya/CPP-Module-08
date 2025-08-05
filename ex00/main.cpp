@@ -20,7 +20,20 @@ int main(int c, char** v)
     {
         int inputNumber;
         std::cout << "tofind : ";
-        std::cin >> inputNumber;
+        if (!(std::cin >> inputNumber))
+        {
+            if (std::cin.eof())
+            {
+                std::cout << "End of input.\n";
+                break;
+            }
+            else
+            {
+                std::cout << "Invalid input. Please enter a number.\n";
+                std::cin.clear();
+                break;
+            }
+        }
         try
         {
             ::easyfind<std::vector<int>, std::vector<int>::iterator>(vecotr, inputNumber);
@@ -29,6 +42,6 @@ int main(int c, char** v)
         {
             std::cerr << e.what() << std::endl;
         }
-        return 0;
     }
+    return 0;
 }
